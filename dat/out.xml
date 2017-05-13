@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<url class="PWE\Modules\HTMLPage\HTMLPage" src="index.html" template="dat/demo.tpl">
+    <url link="api">
+        <!-- JSON API -->
+        <!-- XML API -->
+    </url>
+    <url link="auth"></url>
+    <url link="single-page-app"></url>
+    <url link="forms"></url>
+    <url link="http"></url>
+    <url link="redirects"></url>
+</url>
