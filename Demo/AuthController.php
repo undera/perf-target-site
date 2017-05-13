@@ -8,6 +8,7 @@ use PWE\Core\PWELogger;
 use PWE\Exceptions\HTTP2xxException;
 use PWE\Exceptions\HTTP3xxException;
 use PWE\Exceptions\HTTP4xxException;
+use PWE\Exceptions\HTTP5xxException;
 
 class AuthController extends PWEUserAuthController
 {
@@ -81,4 +82,14 @@ class AuthController extends PWEUserAuthController
         $_SESSION['categories'][] = $data;
     }
 
+    public function deleteCategory($id)
+    {
+        foreach ($_SESSION['categories'] as $k => $v) {
+            if ($v['id'] == $id) {
+                unset($_SESSION['categories'][$k]);
+                return $v;
+            }
+        }
+        throw new HTTP5xxException("Did not find item $id to delete");
+    }
 }

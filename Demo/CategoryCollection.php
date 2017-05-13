@@ -30,10 +30,7 @@ class CategoryCollection extends AbstractCollection
 
     protected function handlePost($data)
     {
-        if (!$this->context->isLoggedIn()) {
-            throw new HTTP4xxException("You need to be authenticated to add items", HTTP4xxException::FORBIDDEN);
-        }
-
+        $this->checkAuth();
         $items=$this->getItems();
         foreach ($items as $item) {
             if ($item['name']==$data['name']) {
@@ -46,6 +43,13 @@ class CategoryCollection extends AbstractCollection
         return $this->handleGet($new);
     }
 
+    protected function handleDelete($item)
+    {
+        $this->checkAuth();
+        $existing = $this->handleGet($item);
+        $this->context->deleteCategory($item);
+        throw new HTTP2xxException("", HTTP2xxException::NO_CONTENT);
+    }
 
     private function getItems()
     {

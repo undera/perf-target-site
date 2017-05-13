@@ -2,7 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 // local debugging settings
-$level = \PWE\Core\PWELogger::DEBUG;
+$level = \PWE\Core\PWELogger::INFO;
 $tempdir = sys_get_temp_dir();
 
 \PWE\Core\PWELogger::setLevel($level);
