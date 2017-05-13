@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {assign var=i value='!i'}{assign var=a value='!a'}{assign var=p value='!p'}{assign var=c value='!c'}
 {URL->getFullCount assign=urlFullCount}
+{AUTH->getUserID assign=userID}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -47,6 +48,7 @@
 
 <body>
 
+
 <nav class="navbar navbar-default">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,13 +77,21 @@
                     {/foreach}
                 </ul>
             {/if}
+
+            {if $userID}
+                <p class="navbar-text navbar-right">Signed in as {$userID} | <a href="/logout">Logout</a></p>
+            {else}
+                <p class="navbar-text navbar-right"><a href="/login">Sign in</a></p>
+            {/if}
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
 
 <div class="container">
-    {PWE->getContent}
+    {block name="content"}
+        {PWE->getContent}
+    {/block}
 </div>
 
 
