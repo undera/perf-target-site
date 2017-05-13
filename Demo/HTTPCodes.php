@@ -2,16 +2,13 @@
 
 namespace Demo;
 
+use PWE\Exceptions\HTTP2xxException;
 use PWE\Modules\Outputable;
 use PWE\Modules\PWEModule;
-use PWE\Modules\SmartyPage\SmartyPage;
 
 class HTTPCodes extends PWEModule implements Outputable
 {
     public static $status_codes = array(
-        100 => 'Continue',
-        101 => 'Switching Protocols',
-        102 => 'Processing',
         200 => 'OK',
         201 => 'Created',
         202 => 'Accepted',
@@ -72,22 +69,28 @@ class HTTPCodes extends PWEModule implements Outputable
         $params = $this->PWE->getURL()->getParamsAsArray();
         if ($params[0] == 'random') {
             $code = array_rand(self::$status_codes);
-        } else if (!$params) {
-            $html = new SmartyPage($this->PWE);
-            $html->process();
-            return;
+        } elseif (!$params) {
+            $code = false;
         } else {
             $code = intval($params[0]);
         }
 
         // TODO: special handling for 3xx
+        if ($code == 302) {
+            $this->PWE->sendHTTPHeader("Location: ./301");
+        } elseif ($code == 301) {
+            $this->PWE->sendHTTPHeader("Location: ./202");
+        } elseif ($code == 204) {
+            throw new HTTP2xxException("", HTTP2xxException::NO_CONTENT);
+        }
+
         // TODO: special handling for 2xx
 
         $this->PWE->sendHTTPStatusCode($code);
         $smarty = $this->PWE->getSmarty();
         $smarty->setTemplateFile('dat/httpcodes.tpl');
-        $smarty->assign("code", $code);
         $smarty->assign("codes", self::$status_codes);
+        $smarty->assign("code", $code);
         $this->PWE->addContent($smarty);
     }
 }

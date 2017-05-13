@@ -1,7 +1,6 @@
 <h1>Demo for HTTP Codes</h1>
 {if $code}
     <h2>Simulated response: {$code} {$codes.$code}</h2>
-{else}
 {/if}
 <h2>List of codes (<a href="/http/random">random</a>):</h2>
 <ul>

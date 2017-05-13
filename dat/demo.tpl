@@ -64,7 +64,7 @@
                         {if $item1.$a.menu}
                             {if $item1.selected}
                                 <li class="active">
-                                    <a href="#">{$item1.$a.title|default:$item1.$a.link}</a>
+                                    <a href="{'../'|str_repeat:$upper_repeats}{$item1.$a.link}">{$item1.$a.title|default:$item1.$a.link}</a>
                                 </li>
                             {else}
                                 <li>
