@@ -1,0 +1,10 @@
+execution:
+- scenario: covered
+
+scenarios:
+  covered:
+    default-address: http://localhost:8004  # change it to your server's address
+    requests:
+    - /
+    - /http
+    - /http/random

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<url class="PWE\Modules\HTMLPage\HTMLPage" src="index.html" template="dat/demo.tpl" force_trailing_slash="0" title="Demo Websites">
+<url class="PWE\Modules\HTMLPage\HTMLPage" src="index.html" template="dat/demo.tpl" force_trailing_slash="0"
+     title="Demo Websites">
     <url link="spa" menu="1" title="Single Page App"/>
 
     <url link="forms" menu="1" title="Forms App"/>
-    <url link="http" menu="1" title="HTTP Codes" class="Demo\HTTPCodes">
+    <url link="http" menu="1" title="HTTP Codes" class="Demo\HTTPCodes" accept="1" tpl="dat/httpcodes.tpl">
         <url link="first-hop">
             <url link="second-hop"/>
         </url>
