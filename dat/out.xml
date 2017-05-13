@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <url class="PWE\Modules\HTMLPage\HTMLPage" src="index.html" template="dat/demo.tpl" force_trailing_slash="0"
      title="Demo Websites" authController="Demo\AuthController">
-    <url link="spa" menu="1" title="Single Page App"/>
 
-    <url link="forms" menu="1" title="Forms App"/>
     <url link="http" menu="1" title="HTTP Codes" class="Demo\HTTPCodes" accept="1" tpl="dat/httpcodes.tpl">
         <url link="first-hop">
             <url link="second-hop"/>
         </url>
     </url>
+
+    <url link="spa" menu="1" title="Single Page App" class="PWE\Modules\SmartyPage\SmartyPage" tpl="dat/spa.tpl"/>
+
     <url link="api" menu="1" title="JSON API" class="PWE\Modules\HTMLPage\HTMLPage" src="api.html" template="empty.tpl">
         <url link="categories" class="Demo\CategoryCollection">
             <params count="1">
@@ -22,4 +23,6 @@
     </url>
     <url link="logout"/>
     <url link="login"/>
+
+    <url link="forms" menu="1" title="Forms App"/>
 </url>

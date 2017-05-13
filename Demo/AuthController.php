@@ -66,11 +66,11 @@ class AuthController extends PWEUserAuthController
     {
         if (!isset($_SESSION['categories'])) {
             $_SESSION['categories'] = [
-                ["id" => 1, "name" => "Electronics"],
-                ["id" => 2, "name" => "Home Appliances"],
-                ["id" => 3, "name" => "Toys"],
-                ["id" => 4, "name" => "Books"],
-                ["id" => 5, "name" => "Sports Goods"],
+                ["id" => 1, "name" => "Electronics", "icon"=>"fa-mobile", "color"=>"blue"],
+                ["id" => 2, "name" => "Home Appliances", "icon"=>"fa-television", "color"=>"green"],
+                ["id" => 3, "name" => "Toys", "icon"=>"fa-child", "color"=>"orange"],
+                ["id" => 4, "name" => "Books", "icon"=>"fa-book", "color"=>"purple"],
+                ["id" => 5, "name" => "Sports Goods", "icon"=>"fa-bicycle", "color"=>"red"],
             ];
         }
         return $_SESSION['categories'];
