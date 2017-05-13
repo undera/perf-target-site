@@ -2,6 +2,13 @@
 
 ## Features
 
+### Headers
++ cookies flags for web UI - top right corner access
+
+Response times
+Error rates
+
+
 ## Deploying
 ```bash
 # git clone <repo>
