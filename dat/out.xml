@@ -24,5 +24,5 @@
     <url link="logout"/>
     <url link="login"/>
 
-    <url link="forms" menu="1" title="Forms App"/>
+    <url link="forms" menu="0" title="Forms App"/>
 </url>

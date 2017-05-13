@@ -8,6 +8,7 @@
     width: 20em;
     height: 20em;
     margin-right: 1em;
+    cursor: pointer;
 }
 
 .cat-card .fa {
