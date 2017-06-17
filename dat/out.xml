@@ -7,6 +7,9 @@
             <url link="second-hop"/>
         </url>
     </url>
+    <url link="rtimes" menu="1" title="Resp. Times">
+        <url link="const" menu="1" title="Constant" class="Demo\RTimeConstant"/>
+    </url>
 
     <url link="spa" menu="1" title="Single Page App" class="PWE\Modules\SmartyPage\SmartyPage" tpl="dat/spa.tpl"/>
 

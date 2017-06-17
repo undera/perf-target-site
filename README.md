@@ -19,6 +19,8 @@ ln -s vendor/index.php
 
 ## Ideas
 
+coordinated omission demo - http://bravenewgeek.com/everything-you-know-about-latency-is-wrong/
+
 Иллюстрируем типы ручек
     Легкие
     Тяжелые
