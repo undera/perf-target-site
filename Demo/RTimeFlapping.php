@@ -11,8 +11,8 @@ class RTimeFlapping extends PWEModule implements Outputable
 {
     public function process()
     {
-        $relaxed = intval($_REQUEST['relaxed']);
-        $stuck = intval($_REQUEST['stuck']);
+        $relaxed = max(intval($_REQUEST['relaxed']), 1);
+        $stuck = max(intval($_REQUEST['stuck']), 1);
         if ((time() % ($relaxed + $stuck)) > $relaxed) {
             $duration = intval($_REQUEST['delay_stuck']);
         } else {
