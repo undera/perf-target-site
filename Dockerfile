@@ -9,7 +9,7 @@ RUN apt clean
 
 WORKDIR /var/www
 ADD composer.json /var/www
-RUN composer --no-dev --prefer-stable update
+RUN composer --no-dev --prefer-stable update && ln -s vendor/undera/pwe/index.php && ln -s vendor/undera/pwe/.htaccess
 
 ADD *.php /var/www/
 ADD Demo /var/www/Demo
