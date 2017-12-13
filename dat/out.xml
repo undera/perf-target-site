@@ -11,6 +11,7 @@
     <url link="rtimes" menu="1" title="Resp. Times" class="PWE\Modules\SubPagesList\SubPagesList">
         <url template1="empty.tpl" link="const" menu="1" title="Constant Response Time" class="Demo\RTimeConstant"/>
         <url template1="empty.tpl" link="flapping" menu="1" title="Flapping Response Time" class="Demo\RTimeFlapping"/>
+        <url template1="empty.tpl" link="factorial" menu="1" title="Cacheable Factorial" class="Demo\RTimeFactorial"/>
     </url>
 
     <url link="spa" menu="1" title="Single Page App" class="PWE\Modules\SmartyPage\SmartyPage" tpl="dat/spa.tpl"/>

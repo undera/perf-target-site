@@ -4,20 +4,15 @@ namespace Demo;
 
 
 use PWE\Core\PWELogger;
-use PWE\Modules\Outputable;
-use PWE\Modules\PWEModule;
 
-class RTimeConstant extends PWEModule implements Outputable
+class RTimeConstant extends AbstractTextOutput
 {
-    public function process()
+
+    protected function getTextOutput()
     {
         $duration = intval($_REQUEST['delay']);
         PWELogger::info("Sleeping for $duration");
-        usleep($duration*1000);
-
-        $smarty = $this->PWE->getSmarty();
-        $smarty->setTemplateFile(__DIR__ . '/text.tpl');
-        $smarty->assign("content", "Simulated response time: " . $duration . "ms");
-        $this->PWE->addContent($smarty);
+        usleep($duration * 1000);
+        return "Simulated response time: " . $duration . "ms";
     }
 }
